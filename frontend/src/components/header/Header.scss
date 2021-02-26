@@ -1,0 +1,65 @@
+@import "../../styles/global-variables.scss";
+
+.header {
+	height: 7rem;
+	width: 100%;
+	background-color: $dark-blue-color;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 calc((100vw - 1400px) / 2);
+	.header--logo--container {
+		.header--logo {
+			color: $primary-text-color;
+			font-size: 3rem;
+			text-decoration: none;
+			span {
+				color: $secondary-text-color;
+			}
+		}
+	}
+
+	.nav--container {
+		display: flex;
+
+		.nav--link {
+			font-size: 2rem;
+			text-decoration: none;
+			color: $primary-text-color;
+			text-shadow: $text-shadow-small;
+
+			&:active {
+				text-decoration: none;
+			}
+			&:hover {
+				color: $secondary-text-color;
+			}
+
+			&:not(:last-child) {
+				margin-right: 2rem;
+			}
+		}
+	}
+
+	.login-shopcart--container {
+		display: flex;
+
+		.login--cart--link {
+			font-size: 2rem;
+			text-decoration: none;
+			color: $primary-text-color;
+			text-shadow: $text-shadow-small;
+
+			&:active {
+				text-decoration: none;
+			}
+			&:hover {
+				color: $secondary-text-color;
+			}
+
+			&:not(:last-child) {
+				margin-right: 2rem;
+			}
+		}
+	}
+}
