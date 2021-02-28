@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 
+import HomePage from './pages/HomePage';
 
 function App() {
   return (
@@ -14,9 +15,8 @@ function App() {
       <div className='App-container'>
         <Header/>
           <Switch>
-            <main>  
             <Route path="/" exact>
-              tomek
+              <HomePage/>
             </Route>
             <Route path="/about">
               about
@@ -33,7 +33,6 @@ function App() {
             <Route path="/cart">
               contact
             </Route>
-            </main>
           </Switch>
         <Footer/>
       </div>

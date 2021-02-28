@@ -1,0 +1,36 @@
+.product-container {
+	height: 50rem;
+	width: 35rem;
+	border: 1px solid #000;
+
+	.product-image-container {
+		height: 70%;
+		padding: 1rem 1rem;
+
+		.product-image {
+			height: 100%;
+			width: 100%;
+		}
+	}
+
+	.product-detail-container {
+		height: 30%;
+		width: 100%;
+		border-top: 1px solid #000;
+		padding: 1rem 1rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+		align-items: center;
+
+		.product-name {
+			font-size: 2rem;
+		}
+		.product-rating {
+			font-size: 2rem;
+		}
+		.product-price {
+			font-size: 3rem;
+		}
+	}
+}

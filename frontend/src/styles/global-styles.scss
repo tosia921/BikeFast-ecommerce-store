@@ -128,3 +128,11 @@ html {
 	font-family: "Fjalla One", sans-serif;
 	font-size: 62.5%;
 }
+a {
+	text-decoration: none;
+	color: inherit;
+	&:active,
+	&:visited {
+		color: inherit;
+	}
+}
