@@ -1,5 +1,7 @@
 import React from 'react';
 import './Header.scss';
+import { FiShoppingCart } from 'react-icons/fi';
+import { BiUser } from 'react-icons/bi';
 
 import { NavLink } from 'react-router-dom';;
 
@@ -16,7 +18,9 @@ const Header = () => {
                 <NavLink className='nav--link' activeStyle={{color: "#ef8216"}} to='/contact' exact>CONTACT</NavLink>
             </nav>
             <div className='login-shopcart--container'>
+                <BiUser className='user-icon'/>
                 <NavLink className='login--cart--link' activeStyle={{color: "#ef8216"}} to='/signin' exact>SIGN IN</NavLink>
+                <FiShoppingCart className='user-icon'/>
                 <NavLink className='login--cart--link' activeStyle={{color: "#ef8216"}} to='/cart' exact>CART</NavLink>
             </div>
         </header>

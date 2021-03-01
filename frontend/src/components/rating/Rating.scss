@@ -1,0 +1,19 @@
+.rating {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.stars-container {
+		span:not(:last-child) {
+			margin-right: 0.2rem;
+		}
+	}
+	.rating-text {
+		margin-left: 1rem;
+		font-size: 1.2rem;
+	}
+}
+
+.star {
+	color: gold;
+	font-size: 2rem;
+}

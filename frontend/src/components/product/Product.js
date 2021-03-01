@@ -1,5 +1,6 @@
 import React from 'react';
 import './Product.scss';
+import Rating from '../rating/Rating';
 
 const Product = ({ product }) => {
     return (
@@ -10,7 +11,7 @@ const Product = ({ product }) => {
             </div>
             <div className='product-detail-container'>
                 <h2 className='product-name'>{product.name}</h2>
-                <p className='product-rating'>{product.rating}</p>
+                <Rating value={product.rating} text={`${product.numReviews} reviews`}/>
                 <p className='product-price'>£ {product.price}</p>
             </div>
         </a>

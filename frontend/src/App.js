@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
+import ProductDetails from './components/product-details/ProductDetails'
 
 import HomePage from './pages/HomePage';
 
@@ -24,6 +25,7 @@ function App() {
             <Route path="/shop">
               SHOP
             </Route>
+            <Route path="/product/:id" component={ProductDetails}/>
             <Route path="/contact">
               contact
             </Route>
