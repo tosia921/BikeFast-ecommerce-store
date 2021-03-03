@@ -1,0 +1,26 @@
+@import "../../styles/global-variables.scss";
+
+.product-details-container {
+	padding: 5rem calc((100vw - 1400px) / 2);
+
+	.product-details {
+		margin-top: 5rem;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: 1fr;
+		justify-items: center;
+
+		.grid-col-1 {
+			p {
+				font-size: 2.5rem;
+			}
+		}
+		.grid-col-2 {
+			p {
+				font-size: 4rem;
+			}
+		}
+		.grid-col-3 {
+		}
+	}
+}
