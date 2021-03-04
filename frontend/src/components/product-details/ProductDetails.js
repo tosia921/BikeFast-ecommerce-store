@@ -14,7 +14,7 @@ const ProductDetails = ( {match} ) => {
             setProduct(data)
         }
         fetchProduct()
-    }, [])
+    }, [match])
 
     return (
         <div className='product-details-container'>
