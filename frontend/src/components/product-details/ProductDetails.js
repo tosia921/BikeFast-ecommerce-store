@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './ProductDetails.scss';
 import Rating from '../rating/Rating';
-import products from '../../products';
+import axios from 'axios';
 import CustomButton from '../custom-button/CustomButton';
 
 const ProductDetails = ( {match} ) => {
 
-    const product = products.find(p => p._id === match.params.id)
+    const [product, setProduct] = useState({});
+
+    useEffect(() => {
+        const fetchProduct = async() => {
+            const { data } = await axios.get(`/api/products/${match.params.id}`)
+            setProduct(data)
+        }
+        fetchProduct()
+    }, [])
 
     return (
         <div className='product-details-container'>
