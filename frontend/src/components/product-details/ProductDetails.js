@@ -7,7 +7,6 @@ import CustomButton from '../custom-button/CustomButton';
 const ProductDetails = ( {match} ) => {
 
     const product = products.find(p => p._id === match.params.id)
-    console.log(match);
 
     return (
         <div className='product-details-container'>
@@ -19,12 +18,25 @@ const ProductDetails = ( {match} ) => {
                 </div>
                 <div className='grid-col-2'>
                     <p>{product.name}</p>
-                    <div style={{ borderTop: "1px solid #000 ", marginTop: 40, marginBottom: 40 }}></div>
+                    <div style={{ borderTop: "1px solid #000 ", marginTop: 20, marginBottom: 20 }}></div>
                     <div className='product-details-rating'>
-                        <Rating value={product.rating}/>
+                        <Rating value={product.rating}>{product.numReviews} reviews</Rating>
+                    </div>
+                    <div style={{ borderTop: "1px solid #000 ", marginTop: 20, marginBottom: 20 }}></div>
+                    <div className='product-details-price'>Price: £{product.price}</div>
+                    <div style={{ borderTop: "1px solid #000 ", marginTop: 20, marginBottom: 20 }}></div>
+                    <div className='product-details-description'>{product.description}</div>
+                </div>
+                <div className='grid-col-3'>
+                    <div className='add-to-cart-box'>Price: £{product.price}</div>
+                    <div className='add-to-cart-box'>
+                        Status: {product.countInStock > 0 ? 'In stock' : 'Out of stock'}
+                    </div>
+                    <div className='add-to-cart-box'>quanity</div>
+                    <div className='product-details-button-container'>
+                    <CustomButton>ADD TO CART</CustomButton>
                     </div>
                 </div>
-                <div className='grid-col-3'></div>
             </section>
         </div>
     )

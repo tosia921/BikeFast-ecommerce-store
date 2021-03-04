@@ -4,7 +4,7 @@ import { BsStarFill } from 'react-icons/bs';
 import { BsStarHalf } from 'react-icons/bs';
 import { BsStar } from 'react-icons/bs';
 
-const Rating = ({ value, text }) => {
+const Rating = ({ value, text, children }) => {
     return (
         <div className='rating'>
             <div className='stars-container'> 
@@ -24,6 +24,7 @@ const Rating = ({ value, text }) => {
                     {value === 5 ? <BsStarFill className='star'/> : value >= 4.5 ? <BsStarHalf className='star'/> : <BsStar className='star'/>}
                 </span>
             </div>
+            {children}
             <div className='rating-text'>{text && text}</div>
         </div>
     )

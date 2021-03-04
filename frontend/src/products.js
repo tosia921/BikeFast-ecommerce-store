@@ -47,7 +47,7 @@ const products = [
     brand: 'Hasa',
     category: 'Mountain',
     price: 1099.99,
-    countInStock: 10,
+    countInStock: 0,
     rating: 2,
     numReviews: 12,
   },
