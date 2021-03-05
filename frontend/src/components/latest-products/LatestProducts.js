@@ -1,26 +1,41 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { listProducts } from '../../redux/actions/productActions';
+
 import './LatestProducts.scss';
 import Product from '../../components/product/Product';
-import axios from 'axios';
+import Loader from '../loader/Loader';
+
 
 const LatestProducts = () => {
-    const [products, setProducts] = useState([]);
+
+    const dispatch = useDispatch()
+
+    const productList = useSelector(state => state.productList)
+
+    const { loading, error, products } = productList
+
     useEffect(() => {
-        const fetchProducts = async() => {
-            const { data } = await axios.get('/api/products')
-            setProducts(data)
-        }
-        fetchProducts()
-    }, [])
+        dispatch(listProducts())
+    }, [dispatch])
 
     return (
         <section className='latest-products'>
             <h1 className='latest-products-title'>Latest Products</h1>
-            <div className='latest-products-grid-container'>
-                {products.map(product => (
-                    <Product key={product._id} product={product}/>
-                ))}
-            </div>
+            {
+            loading ? 
+                (<Loader/>) 
+            : error ? 
+                (<h3>{error}</h3>) 
+            :
+                (<div className='latest-products-grid-container'>
+                    {products.map(product => (
+                        <Product key={product._id} product={product}/>
+                    ))}
+                </div>)
+            }
+            
         </section>
     )
 }

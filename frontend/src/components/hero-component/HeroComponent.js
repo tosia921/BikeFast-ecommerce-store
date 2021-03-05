@@ -4,7 +4,6 @@ import './HeroComponent.scss';
 const HeroComponent = () => {
     return (
         <section className='hero-component'>
-            Hello
         </section>
     )
 }

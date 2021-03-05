@@ -1,25 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { listProductDetails } from '../../redux/actions/productActions'
 import './ProductDetails.scss';
 import Rating from '../rating/Rating';
-import axios from 'axios';
 import CustomButton from '../custom-button/CustomButton';
+import Loader from '../loader/Loader';
 
 const ProductDetails = ( {match} ) => {
 
-    const [product, setProduct] = useState({});
+    const dispatch = useDispatch();
+
+    const productDetails = useSelector(state => state.productDetails)
+    const {loading, error, product} = productDetails
 
     useEffect(() => {
-        const fetchProduct = async() => {
-            const { data } = await axios.get(`/api/products/${match.params.id}`)
-            setProduct(data)
-        }
-        fetchProduct()
-    }, [match])
+        dispatch(listProductDetails(match.params.id))
+    }, [dispatch, match])
 
     return (
         <div className='product-details-container'>
             <CustomButton to='/' secondaryColor>go back</CustomButton>
-            <section className='product-details'>
+
+            {loading ? <Loader/> : error ? <h2>{error}</h2> : (
+                <section className='product-details'>
                 <div className='grid-col-1'>
                     <img src={product.image} alt={product.name}/>
                     <p>REVIEWS</p>
@@ -46,6 +49,8 @@ const ProductDetails = ( {match} ) => {
                     </div>
                 </div>
             </section>
+            )}
+            
         </div>
     )
 }
