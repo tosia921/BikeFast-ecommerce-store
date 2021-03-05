@@ -5,7 +5,7 @@ import { listProducts } from '../../redux/actions/productActions';
 
 import './LatestProducts.scss';
 import Product from '../../components/product/Product';
-import Loader from '../loader/Loader';
+import LoaderSpinner from '../loader/Loader';
 
 
 const LatestProducts = () => {
@@ -25,7 +25,7 @@ const LatestProducts = () => {
             <h1 className='latest-products-title'>Latest Products</h1>
             {
             loading ? 
-                (<Loader/>) 
+                (<LoaderSpinner/>) 
             : error ? 
                 (<h3>{error}</h3>) 
             :

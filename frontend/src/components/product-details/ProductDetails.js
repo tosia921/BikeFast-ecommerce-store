@@ -4,7 +4,7 @@ import { listProductDetails } from '../../redux/actions/productActions'
 import './ProductDetails.scss';
 import Rating from '../rating/Rating';
 import CustomButton from '../custom-button/CustomButton';
-import Loader from '../loader/Loader';
+import LoaderSpinner from '../loader/Loader';
 
 const ProductDetails = ( {match} ) => {
 
@@ -21,7 +21,7 @@ const ProductDetails = ( {match} ) => {
         <div className='product-details-container'>
             <CustomButton to='/' secondaryColor>go back</CustomButton>
 
-            {loading ? <Loader/> : error ? <h2>{error}</h2> : (
+            {loading ? <LoaderSpinner/> : error ? <h2>{error}</h2> : (
                 <section className='product-details'>
                 <div className='grid-col-1'>
                     <img src={product.image} alt={product.name}/>
