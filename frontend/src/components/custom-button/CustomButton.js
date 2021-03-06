@@ -5,7 +5,7 @@ import './CustomButton.scss';
 const CustomButton = ({to, children, secondaryColor, ...otherProps}) => {
     return (
         <Link to={to}>
-            <button className={secondaryColor ? 'custom-button secondary-color' : 'custom-button'}>
+            <button className={secondaryColor ? 'custom-button secondary-color' : 'custom-button'} {...otherProps}>
             {children}
             </button>
         </Link>

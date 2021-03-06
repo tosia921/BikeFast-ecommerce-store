@@ -9,6 +9,7 @@ import Footer from './components/footer/Footer';
 import ProductDetails from './components/product-details/ProductDetails'
 
 import HomePage from './pages/HomePage';
+import CartPage from './pages/CartPage';
 
 function App() {
   return (
@@ -32,9 +33,7 @@ function App() {
             <Route path="/signin">
               contact
             </Route>
-            <Route path="/cart">
-              contact
-            </Route>
+            <Route path="/cart/?id" component={CartPage}/>
           </Switch>
         <Footer/>
       </div>
