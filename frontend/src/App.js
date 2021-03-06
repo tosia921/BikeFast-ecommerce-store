@@ -33,7 +33,7 @@ function App() {
             <Route path="/signin">
               contact
             </Route>
-            <Route path="/cart/?id" component={CartPage}/>
+            <Route path="/cart/:id?" component={CartPage}/>
           </Switch>
         <Footer/>
       </div>

@@ -7,7 +7,7 @@ import CustomButton from '../custom-button/CustomButton';
 import LoaderSpinner from '../loader/Loader';
 
 const ProductDetails = ( {history, match} ) => {
-    const [qty, setQty] = useState(0);
+    const [qty, setQty] = useState(1);
 
     const dispatch = useDispatch();
 
