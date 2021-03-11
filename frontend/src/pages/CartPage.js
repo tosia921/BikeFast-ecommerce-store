@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import LoaderSpinner from '../components/loader/Loader';
 import { Link } from 'react-router-dom';
 import { addToCart } from '../redux/actions/cartActions';
+import CartItem from '../components/cart-item/CartItem';
+
+import './CartPage.scss';
 
 const CartPage = ({ match, location, history }) => {
     const productId = match.params.id //taking item id from url
@@ -21,9 +24,20 @@ const CartPage = ({ match, location, history }) => {
     console.log(cartItems);
 
     return (
-        <div>
-            <h1>wswd</h1>
-        </div>
+        <main className='cart-page'>
+            <div className='cart-items'>
+                {cartItems.length === 0 ? <h1 className='empty-cart-message'>Your Cart is empty</h1> : (
+                    <div className='cart-items-list'>
+                        {
+                            cartItems.map(item => (
+                                <CartItem key={item.product} item={item}/>   
+                            ))
+                        }
+                    </div>
+                )}
+            </div>
+            <div className='cart-summary'>qwdqwd</div>
+        </main>
     )
 }
 

@@ -1,0 +1,15 @@
+@import "../styles/global-variables.scss";
+
+.cart-page {
+	height: fit-content;
+	padding: 5rem calc((100vw - 1400px) / 2);
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	grid-template-rows: 1fr;
+	justify-items: center;
+	align-items: center;
+
+	.empty-cart-message {
+		font-size: 3rem;
+	}
+}
