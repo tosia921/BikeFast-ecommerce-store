@@ -4,6 +4,7 @@ import LoaderSpinner from '../components/loader/Loader';
 import { Link } from 'react-router-dom';
 import { addToCart } from '../redux/actions/cartActions';
 import CartItem from '../components/cart-item/CartItem';
+import CustomButton from '../components/custom-button/CustomButton';
 
 import './CartPage.scss';
 
@@ -21,7 +22,10 @@ const CartPage = ({ match, location, history }) => {
 
     const cart = useSelector(state => state.cart) // assigning cart global state to cart variable
     const { cartItems } = cart // destructuring cartItems from cart
-    console.log(cartItems);
+    
+    const checkoutHandler = () => {
+        history.push('/login?redirect=shipping')
+    }
 
     return (
         <main className='cart-page'>
@@ -36,7 +40,23 @@ const CartPage = ({ match, location, history }) => {
                     </div>
                 )}
             </div>
-            <div className='cart-summary'>qwdqwd</div>
+            <div className='cart-summary'>
+                <div className='cart-summary-name'>
+                    <p>Cart Summary</p>
+                </div>
+                <div className='cart-summary-info'>
+                    <div className='cart-summary-itemCount'>
+                        Items in Cart: {cartItems.reduce((acc, item) => acc + item.qty, 0)}
+                    </div>
+                    <div className='cart-sumarry-totalPrice'>
+                        Total Price: {cartItems.reduce((acc, item) => acc+ item.qty * item.price, 0).toFixed(2)}
+                    </div>
+                </div>
+                <div className='cart-summary-buttons'>
+                    <CustomButton secondaryColor to='/'>Continue Shopping</CustomButton>
+                    <CustomButton disabled={cartItems.length === 0} onClick={checkoutHandler}>Go to Checkout</CustomButton>
+                </div>
+            </div>
         </main>
     )
 }
