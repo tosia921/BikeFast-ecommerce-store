@@ -46,33 +46,82 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		height: 3rem;
+		width: fit-content;
+		.logged-in-user-container {
+			margin-right: 2rem;
+			margin-top: 0.25rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 
-		.user-icon {
-			color: white;
-			font-size: 2rem;
-			margin-right: 0.5rem;
-		}
-		.cart-icon {
-			color: white;
-			font-size: 2rem;
-			margin-right: 0.7rem;
-		}
+			.user-link-and-icon {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				&:hover {
+					.link-to-profile {
+						color: $secondary-text-color;
+					}
+					.user-loggedin-icon {
+						color: $secondary-text-color;
+					}
+				}
+				.user-loggedin-icon {
+					color: white;
+					font-size: 2rem;
+					margin-right: 0.5rem;
+				}
 
-		.login--cart--link {
-			font-size: 2rem;
-			text-decoration: none;
-			color: $primary-text-color;
-			text-shadow: $text-shadow-small;
-
-			&:active {
-				text-decoration: none;
+				.link-to-profile {
+					color: $primary-text-color;
+					font-size: 2rem;
+					margin-right: 1rem;
+					cursor: pointer;
+				}
 			}
+
+			p {
+				color: $primary-text-color;
+				font-size: 2rem;
+				cursor: pointer;
+				&:hover {
+					color: $secondary-text-color;
+				}
+			}
+		}
+		.links-container {
 			&:hover {
-				color: $secondary-text-color;
+				.user-icon {
+					color: $secondary-text-color;
+				}
+				.login--cart--link {
+					color: $secondary-text-color;
+				}
 			}
-
 			&:not(:last-child) {
 				margin-right: 2rem;
+			}
+			.cart-icon {
+				color: white;
+				font-size: 2rem;
+				margin-right: 0.7rem;
+			}
+
+			.login--cart--link {
+				font-size: 2rem;
+				text-decoration: none;
+				color: $primary-text-color;
+				text-shadow: $text-shadow-small;
+
+				&:active {
+					text-decoration: none;
+				}
+			}
+			.user-icon {
+				color: white;
+				font-size: 2rem;
+				margin-right: 0.5rem;
 			}
 		}
 	}
