@@ -63,7 +63,7 @@ const ProductDetails = ( {history, match} ) => {
                             )
                         }
                     <div className='product-details-button-container'>
-                    <CustomButton onClick={addToCartHandler}>ADD TO CART</CustomButton>
+                    <CustomButton disabled={product.countInStock === 0} onClick={addToCartHandler}>ADD TO CART</CustomButton>
                     </div>
                 </div>
             </section>
