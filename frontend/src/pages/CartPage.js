@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import LoaderSpinner from '../components/loader/Loader';
-import { Link } from 'react-router-dom';
 import { addToCart } from '../redux/actions/cartActions';
 import CartItem from '../components/cart-item/CartItem';
 import CustomButton from '../components/custom-button/CustomButton';

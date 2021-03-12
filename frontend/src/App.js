@@ -11,6 +11,7 @@ import ProductDetails from './components/product-details/ProductDetails'
 import HomePage from './pages/HomePage';
 import CartPage from './pages/CartPage';
 import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 
 function App() {
   return (
@@ -18,21 +19,14 @@ function App() {
       <div className='App-container'>
         <Header/>
           <Switch>
-            <Route path="/" exact>
-              <HomePage/>
-            </Route>
-            <Route path="/about">
-              about
-            </Route>
-            <Route path="/shop">
-              SHOP
-            </Route>
+            <Route path="/" exact component={HomePage} />
+            <Route path="/about">about</Route>
+            <Route path="/shop">SHOP</Route>
             <Route path="/product/:id" component={ProductDetails}/>
-            <Route path="/contact">
-              contact
-            </Route>
+            <Route path="/contact">contact</Route>
             <Route path="/login" component={LoginPage}/>
             <Route path="/signin"></Route>
+            <Route path="/signup" component={RegisterPage} />
             <Route path="/cart/:id?" component={CartPage}/>
           </Switch>
         <Footer/>

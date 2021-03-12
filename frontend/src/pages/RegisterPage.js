@@ -1,24 +1,27 @@
 import React, {useState, useEffect} from 'react'
-import './LoginPage.scss';
+import './RegisterPage.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import LoaderSpinner from '../components/loader/Loader';
-import { login } from '../redux/actions/userActions';
+import { register } from '../redux/actions/userActions';
 import FormContainer from '../components/form-container/FormContainer';
 import CustomButton from '../components/custom-button/CustomButton';
 
-const LoginPage = ({location, history}) => {
+const RegisterPage = ({location, history}) => {
 
     //creating state variables for form inputs
+    const[name, setName] = useState('')
     const[email, setEmail] = useState('')
     const[password, setPassword] = useState('')
+    const[confirmPassword, setConfirmPassword] = useState('')
+    const[message, setMessage] = useState(null)
 
     //referencing useDispatch function to dispatch variable, so we can dispatch actions to the redux store
     const dispatch = useDispatch()
 
     //extracting userLogin data from redux store
-    const userLogin = useSelector(state => state.userLogin)
+    const userRegister = useSelector(state => state.userRegister)
     //destructuring data from userLogin object
-    const { loading, error, userInfo } = userLogin;
+    const { loading, error, userInfo } = userRegister;
 
     //conditionally assigning location's object search property (only part after '=' sign)to the redirect variable, if it does not exists, assign only '/' that will take us to the home page
     const redirect = location.search ? location.search.split('=')[1] : '/'
@@ -32,18 +35,38 @@ const LoginPage = ({location, history}) => {
     //method that dispatches login action on form submit
     const SubmitHandler = (e) => { 
         e.preventDefault()
-        dispatch(login(email, password))
+        if(password !== confirmPassword) {
+            setMessage("Password's do not match")
+        }
+        dispatch(register(name, email, password))
     }
+
 
     return (
         <FormContainer>
-            <h1 className='sign-in-h1'>SIGN IN</h1>
-            {/* if login fails displays error */}
+            <h1 className='sign-in-h1'>REGISTER ACCOUNT</h1>
+            {/* if password's do not match, display error message */}
+            {message && <p>{message}</p>}
+            {/* if register fails displays error */}
             {error && <p>{error}</p>} 
             {/* displays loading component while in loading stage */}
             {loading && <LoaderSpinner/>}
-            {/* login form */}
+            {/* register form */}
             <form className='form' onSubmit={SubmitHandler}>
+            <div className='form-inputs'>
+                    <label htmlFor='name' className='form-label'>
+                        Name
+                    </label>
+                    <input 
+                        id='name' 
+                        type='text' 
+                        name='name' 
+                        className='form-input' 
+                        placeholder='Enter your Name'
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                    />
+                </div>
                 <div className='form-inputs'>
                     <label htmlFor='email' className='form-label'>
                         Email Address
@@ -72,15 +95,29 @@ const LoginPage = ({location, history}) => {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
-                <CustomButton type='submit'>Sign In</CustomButton>
+                <div className='form-inputs'>
+                    <label htmlFor='confirmPassword' className='form-label'>
+                        Confirm Password
+                    </label>
+                    <input 
+                        id='confirmPassword' 
+                        type='password' 
+                        name='confirmPassword' 
+                        className='form-input' 
+                        placeholder='Confirm your password'
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                    />
+                </div>
+                <CustomButton type='submit'>Register</CustomButton>
             </form>
 
             <div className='new-customer-container'>
                 {/* button that redirects to the register page */}
-                <p>New Customer?</p> <CustomButton secondaryColor to={redirect ? `/register?redirect=${redirect}` : '/signup'}>Register Here</CustomButton>
+                <p>Already an User?</p> <CustomButton secondaryColor to={redirect ? `/login?redirect=${redirect}` : '/login'}>Login Here</CustomButton>
             </div>
         </FormContainer>
     )
 }
 
-export default LoginPage
+export default RegisterPage
