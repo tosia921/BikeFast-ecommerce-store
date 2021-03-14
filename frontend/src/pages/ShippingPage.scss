@@ -1,0 +1,37 @@
+@import '../styles/global-variables.scss';
+
+.shipping-form {
+	width: 80%;
+	font-family: inherit;
+	margin-bottom: 5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	.form-inputs {
+		display: flex;
+		flex-direction: column;
+		width: 40%;
+		&:not(:last-child) {
+			margin-bottom: 2rem;
+		}
+		.form-input {
+			padding: 1.5rem 1rem;
+			font-size: 1.6rem;
+			font-family: "Staatliches", sans-serif;
+		}
+
+		.form-label {
+			margin-bottom: 0.5rem;
+			text-shadow: $text-shadow-small;
+			font-size: 1.5rem;
+			letter-spacing: 1px;
+		}
+	}
+}
+
+.shipping-h1 {
+	font-size: 3rem;
+	margin-bottom: 2rem;
+}

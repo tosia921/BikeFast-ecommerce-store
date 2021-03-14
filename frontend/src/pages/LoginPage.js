@@ -77,7 +77,7 @@ const LoginPage = ({location, history}) => {
 
             <div className='new-customer-container'>
                 {/* button that redirects to the register page */}
-                <p>New Customer?</p> <CustomButton secondaryColor to={redirect ? `/register?redirect=${redirect}` : '/signup'}>Register Here</CustomButton>
+                <p>New Customer?</p> <CustomButton secondaryColor to={redirect ? `/signup?redirect=${redirect}` : '/signup'}>Register Here</CustomButton>
             </div>
         </FormContainer>
     )
