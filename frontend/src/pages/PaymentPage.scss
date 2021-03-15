@@ -1,0 +1,18 @@
+.payment-method-h1 {
+    font-size: 3rem;
+    margin-bottom: 5rem;
+    
+}
+.payment-method-form {
+    .payment-method-form-inputs {
+        .payment-method-form-label {
+            font-size: 2rem;
+
+        }
+        .payment-method-form-input {
+            &:last-child {
+                margin-bottom: 5rem;
+            }
+        }
+    }
+}
