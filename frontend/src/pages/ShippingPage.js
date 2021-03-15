@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import FormContainer from '../components/form-container/FormContainer';
+import CheckOutSteps from '../components/checkoutSteps/CheckOutSteps';
 import CustomButton from '../components/custom-button/CustomButton';
 import { saveShippingAddress } from '../redux/actions/cartActions';
 import './ShippingPage.scss';
@@ -26,6 +27,7 @@ const ShippingPage = ({ history }) => {
 
     return (
         <FormContainer>
+            <CheckOutSteps step1 step2/>
             <h1 className='shipping-h1'>Shipping</h1>
             <form className='shipping-form' onSubmit={SubmitHandler}>
             <div className='form-inputs'>

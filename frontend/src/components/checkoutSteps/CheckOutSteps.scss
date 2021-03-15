@@ -1,0 +1,34 @@
+.chechout-step-cointainer {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5rem;
+
+    .checkout-steps {
+        display: flex;
+        margin-bottom: 3rem;
+        width: 100%;
+        justify-content: space-evenly;
+
+        .chechout-step-link-container {
+            font-size: 2rem;
+            
+            .active-link {
+    
+            }
+            .disabled-link {
+                pointer-events: none;
+                color: gray;
+              }
+        }
+    }
+    .horizontal-line {
+        width: 80%;
+        height: 1px;
+        background-color: black;
+    } 
+}
+
+
